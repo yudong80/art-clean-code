@@ -3,7 +3,7 @@ import re
 
 
 def url_to_html(url):
-    html = urllib.request.urlopen(url).read()
+    html = urllib.request.urlopen(url).read().decode('utf-8')
     return html
 
 def prettify_html(html):
@@ -19,3 +19,5 @@ def display_html(url):
     fixed_html = fix_missing_tags(html)
     prettified_html = prettify_html(fixed_html)
     return prettified_html
+
+print(display_html('https://finxter.com'))
