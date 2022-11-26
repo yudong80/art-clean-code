@@ -3,7 +3,7 @@ import re
 
 
 def url_to_html(url):
-    html = urllib.request.urlopen(url).read().decode('utf-8')
+    html = urllib.request.urlopen(url).read()
     return html
 
 def prettify_html(html):
@@ -15,7 +15,7 @@ def fix_missing_tags(html):
     return html
 
 def display_html(url):
-    html = url_to_html(url)
+    html = url_to_html(url).decode('utf-8')
     fixed_html = fix_missing_tags(html)
     prettified_html = prettify_html(fixed_html)
     return prettified_html
